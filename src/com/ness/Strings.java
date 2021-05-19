@@ -17,10 +17,13 @@ public class Strings {
         int myInt = 50;
         lastString = lastString + myInt;
         System.out.println("lastString = " + lastString);
+        System.out.println("HashCode of lastString: " + System.identityHashCode(lastString));
+        System.out.println("HashCode of lastString without change: " + System.identityHashCode(lastString));
 
         double doubleNumber = 120.47d;
         lastString = lastString + doubleNumber;
         System.out.println("lastString = " + lastString);
+        System.out.println("HashCode of lastString after change: " + System.identityHashCode(lastString));
 
     }
 
