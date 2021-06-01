@@ -16,7 +16,7 @@ public class SpeedConverter {
         // here must be else, because otherwise code will be always executed
         else {
             //System.out.println(kilometersPerHour + "km/h = " + Math.round(kilometersPerHour / 1.609) + "mi/h");
-            System.out.println(kilometersPerHour + "km/h = " + toMilesPerHour(kilometersPerHour) + " mi/h");
+            System.out.println(kilometersPerHour + " km/h = " + toMilesPerHour(kilometersPerHour) + " mi/h");
         }
 
     }
