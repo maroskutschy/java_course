@@ -26,10 +26,18 @@ public class SpeedConverterMain {
 //        System.out.println(LeapYear.isLeapYear(2400));
 //        System.out.println(LeapYear.isLeapYear(1924));
 
-        System.out.println(EqualByThreeDecimalPlaces.isEqualByThreeDecimalPlaces(-3.1756, -3.175));
-        System.out.println(EqualByThreeDecimalPlaces.isEqualByThreeDecimalPlaces(3.1756, 3.175));
-        System.out.println(EqualByThreeDecimalPlaces.isEqualByThreeDecimalPlaces(3.0, 3.0));
-        System.out.println(EqualByThreeDecimalPlaces.isEqualByThreeDecimalPlaces(-3.123, 3.123));
+//        System.out.println(EqualByThreeDecimalPlaces.isEqualByThreeDecimalPlaces(-3.1756, -3.175));
+//        System.out.println(EqualByThreeDecimalPlaces.isEqualByThreeDecimalPlaces(3.1756, 3.175));
+//        System.out.println(EqualByThreeDecimalPlaces.isEqualByThreeDecimalPlaces(3.0, 3.0));
+//        System.out.println(EqualByThreeDecimalPlaces.isEqualByThreeDecimalPlaces(-3.123, 3.123));
+
+//        System.out.println(EqualSumChecker.hasEqualSum(1,1,1));
+//        System.out.println(EqualSumChecker.hasEqualSum(1,1,2));
+//        System.out.println(EqualSumChecker.hasEqualSum(1,-1,0));
+
+        System.out.println(TeenNumberChecker.hasTeen(9,99,19));
+        System.out.println(TeenNumberChecker.hasTeen(23,15,42));
+        System.out.println(TeenNumberChecker.hasTeen(22,23,34));
 
     }
 
