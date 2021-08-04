@@ -49,13 +49,28 @@ public class Main2 {
 //        System.out.println(person3.getName());
 //        System.out.println(person3.getEmailAddress());
 
-        Wall wall = new Wall(5,4);
-        System.out.println("area= " + wall.getArea());
-        wall.setHeight(-1.5);
-        System.out.println("width= " + wall.getWidth());
-        System.out.println("height= " + wall.getHeight());
-        System.out.println("area= " + wall.getArea());
+//        Wall wall = new Wall(5,4);
+//        wall.hashCode();
+//        System.out.println("area= " + wall.getArea());
+//        wall.setHeight(-1.5);
+//        System.out.println("width= " + wall.getWidth());
+//        System.out.println("height= " + wall.getHeight());
+//        System.out.println("area= " + wall.getArea());
 
+        Dimensions dimensions = new Dimensions(20,20,5);
+        Case theCase = new Case("111", "Dell", "240", dimensions);
+        Monitor monitor = new Monitor("27Inch", "Samsung", 27, new Resolution(2540, 1440));
+        Motherboard motherboard = new Motherboard("222", "Asus", 4, 6, "v2");
+        PC thePC = new PC(theCase, monitor, motherboard);
+
+        // accessing monitor method from PC object
+        thePC.getMonitor().drawPixelAt(1500, 1200, "blue");
+
+        // accessing motherboard method from PC object
+        thePC.getMotherboard().loadProgramme("windows");
+
+        // accessing case method from PC object
+        thePC.getTheCase().pressPowerButton();
     }
 
 }

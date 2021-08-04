@@ -1,6 +1,6 @@
 package com.ness;
 
-public class Wall {
+public class Wall extends Object {
 
     private double width;
     private double height;
