@@ -57,20 +57,58 @@ public class Main2 {
 //        System.out.println("height= " + wall.getHeight());
 //        System.out.println("area= " + wall.getArea());
 
-        Dimensions dimensions = new Dimensions(20,20,5);
-        Case theCase = new Case("111", "Dell", "240", dimensions);
-        Monitor monitor = new Monitor("27Inch", "Samsung", 27, new Resolution(2540, 1440));
-        Motherboard motherboard = new Motherboard("222", "Asus", 4, 6, "v2");
-        PC thePC = new PC(theCase, monitor, motherboard);
+//        Dimensions dimensions = new Dimensions(20,20,5);
+//        Case theCase = new Case("111", "Dell", "240", dimensions);
+//        Monitor monitor = new Monitor("27Inch", "Samsung", 27, new Resolution(2540, 1440));
+//        Motherboard motherboard = new Motherboard("222", "Asus", 4, 6, "v2");
+//        PC thePC = new PC(theCase, monitor, motherboard);
+//
+//        // accessing monitor method from PC object
+//        //thePC.getMonitor().drawPixelAt(1500, 1200, "blue");
+//        thePC.powerUp();
+//
+//        // accessing motherboard method from PC object
+//       // thePC.getMotherboard().loadProgramme("windows");
+//
+//        // accessing case method from PC object
+//        //thePC.getTheCase().pressPowerButton();
+//
+//        Wall2 wallA = new Wall2("W");
+//        Wall2 wallB = new Wall2("E");
+//        Wall2 wallC = new Wall2("S");
+//        Wall2 wallD = new Wall2("N");
+//
+//        Ceiling ceiling = new Ceiling(12, 55);
+//        Bed bed = new Bed("new", 1,2,3,4);
+//        Lamp lamp = new Lamp("nice", false, 5);
+//
+//        Bedroom bedroom = new Bedroom("Maros's", wallA, wallB, wallC, wallD, bed, lamp);
+//        bedroom.makeBed();
+//
+//        // difference ???
+//        bedroom.getLamp().turnOn();
+//        lamp.turnOn();
 
-        // accessing monitor method from PC object
-        thePC.getMonitor().drawPixelAt(1500, 1200, "blue");
+        Player player = new Player();
+        // problem 2 - renamed in Player class
+        //player.name = "Maros";
 
-        // accessing motherboard method from PC object
-        thePC.getMotherboard().loadProgramme("windows");
+        // problem 3 - we forgot to initialize health
+        //player.health = 20;
+        player.health = 20;
+        player.weapon = "spear";
 
-        // accessing case method from PC object
-        thePC.getTheCase().pressPowerButton();
+        int damage = 10;
+        player.loseHealth(damage);
+        System.out.println("Remaing health " + player.healthRemaining());
+
+        damage = 11;
+        // problem 1 - we can modify health outside Player class
+        player.health = 200;
+
+        player.loseHealth(damage);
+        System.out.println("Remaing health " + player.healthRemaining());
+
     }
 
 }
