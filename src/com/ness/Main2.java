@@ -1,5 +1,7 @@
 package com.ness;
 
+import java.util.Arrays;
+
 public class Main2 {
 
     public static void main(String[] args) {
@@ -95,20 +97,79 @@ public class Main2 {
 
         // problem 3 - we forgot to initialize health
         //player.health = 20;
-        player.health = 20;
-        player.weapon = "spear";
+//        player.health = 20;
+//        player.weapon = "spear";
+//
+//        int damage = 10;
+//        player.loseHealth(damage);
+//        System.out.println("Remaing health " + player.healthRemaining());
+//
+//        damage = 11;
+//        // problem 1 - we can modify health outside Player class
+//        player.health = 200;
+//
+//        player.loseHealth(damage);
+//        System.out.println("Remaing health " + player.healthRemaining());
 
-        int damage = 10;
-        player.loseHealth(damage);
-        System.out.println("Remaing health " + player.healthRemaining());
+//        Printer printer = new Printer(50, true);
+//        System.out.println("initial page count" + printer.getPagesPrinted());
+//        int pagesPrinted = printer.printPages(4);
+//        System.out.println("Pages printed" + pagesPrinted);
 
-        damage = 11;
-        // problem 1 - we can modify health outside Player class
-        player.health = 200;
+//        int[] array = new int[10];
+////        array[0]= 1;
+//        System.out.println(array[0] );
+//        System.out.println(array[1] );
+//        for (int i=0; i<array.length; i++) {
+//            array[i] = i*10;
+//        }
+//        for (int i=0; i<array.length; i++) {
+//            System.out.println("Element" + i + "value is:" + array[i]);
+//        }
 
-        player.loseHealth(damage);
-        System.out.println("Remaing health " + player.healthRemaining());
+        int myIntValue = 10;
+        int anotherIntValue = myIntValue;
 
+        System.out.println("myIntValue = " +myIntValue );
+        System.out.println("anotherIntValue = " + anotherIntValue);
+
+        anotherIntValue++;
+
+        System.out.println("myIntValue = " +myIntValue );
+        System.out.println("anotherIntValue = " + anotherIntValue);
+
+
+
+
+
+        int[] myIntArray = new int[5];
+        int[] anotherArray = myIntArray;
+
+        System.out.println("myIntArray = " + Arrays.toString(myIntArray));
+        System.out.println("anotherArray = " + Arrays.toString(myIntArray));
+
+
+
+        anotherArray[0] = 1;
+
+        System.out.println("after change: myIntArray = " + Arrays.toString(myIntArray));
+        System.out.println("after change: anotherArray = " + Arrays.toString(myIntArray));
+
+        //!!! last change in next row:
+        // now anotherArray is referencing to different object in memory
+        anotherArray = new int[] {4,5,6,7,8};
+        modifyArray(myIntArray);
+
+        System.out.println("after change 2: myIntArray = " + Arrays.toString(myIntArray));
+        System.out.println("after change 2: anotherArray = " + Arrays.toString(anotherArray));
+
+
+    }
+
+    private static void modifyArray(int[] array) {
+       array[0] = 2;
+       // Dereferencing to new array object
+       array = new int[] {1,2,3,4,5};
     }
 
 }
