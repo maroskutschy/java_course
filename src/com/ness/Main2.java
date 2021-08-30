@@ -1,8 +1,12 @@
 package com.ness;
 
 import java.util.Arrays;
+import java.util.Scanner;
 
 public class Main2 {
+
+    private static Scanner scanner = new Scanner(System.in);
+    private static GroceryList groceryList = new GroceryList();
 
     public static void main(String[] args) {
 //        Car porsche = new Car();
@@ -127,42 +131,74 @@ public class Main2 {
 //            System.out.println("Element" + i + "value is:" + array[i]);
 //        }
 
-        int myIntValue = 10;
-        int anotherIntValue = myIntValue;
+//        int myIntValue = 10;
+//        int anotherIntValue = myIntValue;
+//
+//        System.out.println("myIntValue = " +myIntValue );
+//        System.out.println("anotherIntValue = " + anotherIntValue);
+//
+//        anotherIntValue++;
+//
+//        System.out.println("myIntValue = " +myIntValue );
+//        System.out.println("anotherIntValue = " + anotherIntValue);
+//
+//
+//
+//
+//
+//        int[] myIntArray = new int[5];
+//        int[] anotherArray = myIntArray;
+//
+//        System.out.println("myIntArray = " + Arrays.toString(myIntArray));
+//        System.out.println("anotherArray = " + Arrays.toString(myIntArray));
+//
+//
+//
+//        anotherArray[0] = 1;
+//
+//        System.out.println("after change: myIntArray = " + Arrays.toString(myIntArray));
+//        System.out.println("after change: anotherArray = " + Arrays.toString(myIntArray));
+//
+//        //!!! last change in next row:
+//        // now anotherArray is referencing to different object in memory
+//        anotherArray = new int[] {4,5,6,7,8};
+//        modifyArray(myIntArray);
+//
+//        System.out.println("after change 2: myIntArray = " + Arrays.toString(myIntArray));
+//        System.out.println("after change 2: anotherArray = " + Arrays.toString(anotherArray));
 
-        System.out.println("myIntValue = " +myIntValue );
-        System.out.println("anotherIntValue = " + anotherIntValue);
+        boolean quit = false;
+        int choice = 0;
+        printInstructions();
+        while(!quit) {
+            System.out.println("Enter your choice: ");
+            choice = scanner.nextInt();
+            scanner.nextLine();
 
-        anotherIntValue++;
-
-        System.out.println("myIntValue = " +myIntValue );
-        System.out.println("anotherIntValue = " + anotherIntValue);
-
-
-
-
-
-        int[] myIntArray = new int[5];
-        int[] anotherArray = myIntArray;
-
-        System.out.println("myIntArray = " + Arrays.toString(myIntArray));
-        System.out.println("anotherArray = " + Arrays.toString(myIntArray));
-
-
-
-        anotherArray[0] = 1;
-
-        System.out.println("after change: myIntArray = " + Arrays.toString(myIntArray));
-        System.out.println("after change: anotherArray = " + Arrays.toString(myIntArray));
-
-        //!!! last change in next row:
-        // now anotherArray is referencing to different object in memory
-        anotherArray = new int[] {4,5,6,7,8};
-        modifyArray(myIntArray);
-
-        System.out.println("after change 2: myIntArray = " + Arrays.toString(myIntArray));
-        System.out.println("after change 2: anotherArray = " + Arrays.toString(anotherArray));
-
+            switch (choice) {
+                case 0:
+                    printInstructions();
+                    break;
+                case 1:
+                    groceryList.printGroceryList();;
+                    break;
+                case 2:
+                    addItem();
+                    break;
+                case 3:
+                    modifyItem();
+                    break;
+                case 4:
+                    removeItem();
+                    break;
+                case 5:
+                    searchForItem();
+                    break;
+                case 6:
+                    quit = true;
+                    break;
+                }
+        }
 
     }
 
@@ -171,5 +207,47 @@ public class Main2 {
        // Dereferencing to new array object
        array = new int[] {1,2,3,4,5};
     }
+
+    public static void printInstructions() {
+        System.out.println("\nPress");
+        System.out.println("\t 0 - print choice options");
+        System.out.println("\t 1 - print list");
+        System.out.println("\t 2 - add");
+        System.out.println("\t 3 - modify");
+        System.out.println("\t 4 - remove");
+        System.out.println("\t 5 - search");
+        System.out.println("\t 6 - quit");
+    }
+
+    public static void addItem() {
+        System.out.print("Please enter grocery item");
+        groceryList.addGroceryItem(scanner.nextLine());
+    }
+
+    public static void modifyItem() {
+        System.out.print("Currnet item name");
+        String itemNo = scanner.nextLine();
+        System.out.print("Enter new item");
+        String newItem = scanner.nextLine();
+        groceryList.modifyGroceryItem(itemNo, newItem);
+    }
+
+    public static void removeItem() {
+        System.out.print("Enter item number");
+        String itemNo = scanner.nextLine();
+        groceryList.removeGroceryItem(itemNo);
+    }
+
+    public static void searchForItem() {
+        System.out.print("Item to search");
+        String searchItem = scanner.nextLine();
+        if (groceryList.onFile(searchItem)){
+            System.out.println("found " + searchItem + " in our list");
+        } else {
+            System.out.println(searchItem + "is not in list");
+        }
+    }
+
+
 
 }
