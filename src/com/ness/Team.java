@@ -2,7 +2,9 @@ package com.ness;
 
 import java.util.ArrayList;
 
-public class Team {
+// can extend 1 class and multiple interfaces
+//public class Team<T extends Player2 & ITelephone> {
+public class Team<T extends Player2> implements Comparable<Team<T>> {
 
     private String name;
     int played = 0;
@@ -10,7 +12,7 @@ public class Team {
     int lost = 0;
     int tied = 0;
 
-    private ArrayList<Player2> members = new ArrayList<>();
+    private ArrayList<T> members = new ArrayList<>();
 
     public Team(String name) {
         this.name = name;
@@ -20,8 +22,9 @@ public class Team {
         return name;
     }
 
-    public boolean addPlayer(Player2 player) {
+    public boolean addPlayer(T player) {
         if (members.contains(player)) {
+            //System.out.println(((Player2) player).getName() + "is alreday in team");
             System.out.println(player.getName() + "is alreday in team");
             return false;
         } else {
@@ -35,16 +38,21 @@ public class Team {
         return this.members.size();
     }
 
-    public void matchResult (Team opponent, int ourScore, int theirScore) {
+    public void matchResult (Team<T> opponent, int ourScore, int theirScore) {
+        String message;
         if (ourScore > theirScore) {
             won++;
+            message = " beat ";
         } else if(ourScore == theirScore) {
             tied++;
+            message = " drew with ";
         } else {
             lost++;
+            message = " lost to ";
         }
         played++;
         if (opponent != null) {
+            System.out.println(this.getName() + message + opponent.getName());
             opponent.matchResult(null, theirScore, ourScore);
         }
     }
@@ -53,6 +61,14 @@ public class Team {
         return (won * 2) + tied;
     }
 
-
-
+    @Override
+    public int compareTo(Team<T> team) {
+        if(this.ranking() > team.ranking()) {
+            return -1;
+        } else if(this.ranking() < team.ranking()) {
+            return 0;
+        } else {
+            return 0;
+        }
+       }
 }
