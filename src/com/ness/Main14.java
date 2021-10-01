@@ -10,6 +10,7 @@ public class Main14 {
 
         System.out.println(one.getInstanceNumber());
         System.out.println(two.getInstanceNumber());
+        System.out.println(SomeClass.classCounter);
 
         System.out.println(Math.PI);
 

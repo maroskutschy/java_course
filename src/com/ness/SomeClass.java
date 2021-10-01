@@ -2,7 +2,7 @@ package com.ness;
 
 public class SomeClass {
 
-    private static int classCounter = 0;
+    public static int classCounter = 0;
     public final int instanceNumber;
     private final String name;
 
@@ -15,5 +15,9 @@ public class SomeClass {
 
     public int getInstanceNumber() {
         return instanceNumber;
+    }
+
+    public static int getClassCounter() {
+        return classCounter;
     }
 }
