@@ -13,6 +13,9 @@ public class Password {
         return password ^ key;
     }
 
+//    public final void storePassword() {
+//        System.out.println("stored" + this.encryptedePassword);
+//    }
     public void storePassword() {
         System.out.println("stored" + this.encryptedePassword);
     }
