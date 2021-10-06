@@ -25,11 +25,24 @@ public class Main14 {
 //        password.letMeIn(44);
 //        password.letMeIn(456456);
 
-        System.out.println("main methods");
-        SIBTest test = new SIBTest();
-        test.method();
-        System.out.println("owner is" + SIBTest.owner);
+//        System.out.println("main methods");
+//        SIBTest test = new SIBTest();
+//        test.method();
+//        System.out.println("owner is" + SIBTest.owner);
 
+        Theatre theatre = new Theatre("Test", 10, 11);
+        theatre.getSeats();
+        if (theatre.reserveSeat("H11")) {
+            System.out.println("pay");
+        } else {
+            System.out.println("taken");
+        }
+
+        if (theatre.reserveSeat("H11")) {
+            System.out.println("pay");
+        } else {
+            System.out.println("taken");
+        }
 
 
     }
