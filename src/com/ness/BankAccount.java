@@ -2,91 +2,46 @@ package com.ness;
 
 public class BankAccount {
 
-    private String number;
+    private String firstName;
+    private String lastName;
     private double balance;
-    private String customerName;
-    private String customerEmailAddress;
-    private String customerPhoneNumber;
 
-    // overriding default constructor
-    public BankAccount() {
-//        // calling constructor from constructor - must be first statement on constructor body
-        this("1112", 1.00, "Bob2", "email2", "0002");
-        System.out.println("empty constructor call");
+    public static final int CHECKING = 1;
+    public static final int SAVINGS = 2;
 
-    }
+    private int accountType;
 
-    public BankAccount(String number, double balance, String customerName,
-            String customerEmailAddress, String customerPhoneNumber) {
-        //setNumber(number);
-        this.number = number;
+    public BankAccount(String firstName, String lastName, double balance, int typeOfAccount) {
+        this.firstName = firstName;
+        this.lastName = lastName;
         this.balance = balance;
-        this.customerName = customerName;
-        this.customerEmailAddress = customerEmailAddress;
-        this.customerPhoneNumber = customerPhoneNumber;
-        System.out.println("constructor with parameters called");
+        this.accountType = typeOfAccount;
     }
 
-    public BankAccount(String customerName, String customerEmailAddress, String customerPhoneNumber) {
-        this("5555", 100.55, customerName, customerEmailAddress, customerPhoneNumber);
-//        this.customerName = customerName;
-//        this.customerEmailAddress = customerEmailAddress;
-//        this.customerPhoneNumber = customerPhoneNumber;
-    }
-
-    public String getNumber() {
-        return number;
-    }
-
-    public void setNumber(String number) {
-        this.number = number;
-    }
-
-    public double getBalence() {
+    // The branch argument is true if the customer is performing the transaction
+    // at a branch, with a teller.
+    // It's false if the customer is performing the transaction at an ATM
+    public double deposit(double amount, boolean branch) {
+        balance += amount;
         return balance;
     }
 
-    public void setBalence(double balence) {
-        this.balance = balence;
+    // The branch argument is true if the customer is performing the transaction
+    // at a branch, with a teller.
+    // It's false if the customer is performing the transaction at an ATM
+    public double withdraw(double amount, boolean branch) {
+        balance -= amount;
+        return balance;
     }
 
-    public String getCustomerName() {
-        return customerName;
+    public double getBalance() {
+        return balance;
     }
 
-    public void setCustomerName(String customerName) {
-        this.customerName = customerName;
+    public boolean isChecking() {
+        return accountType == CHECKING;
     }
 
-    public String getCustomerEmailAddress() {
-        return customerEmailAddress;
-    }
-
-    public void setCustomerEmailAddress(String customerEmailAddress) {
-        this.customerEmailAddress = customerEmailAddress;
-    }
-
-    public String getCustomerPhoneNumber() {
-        return customerPhoneNumber;
-    }
-
-    public void setCustomerPhoneNumber(String customerPhoneNumber) {
-        this.customerPhoneNumber = customerPhoneNumber;
-    }
-
-    public void deposit(double depositAmount){
-        this.balance += depositAmount;
-    }
-
-    public void withdrawal(double withdrawalAmount) {
-        if(this.balance - withdrawalAmount < 0) {
-            System.out.println("Only" + this.balance + "avialable");
-        } else {
-            this.balance -= withdrawalAmount;
-            System.out.println("withdrawal" + withdrawalAmount + " processed.");
-        }
-
-    }
-
+    // More methods that use firstName, lastName, and perform other functions
 
 }
